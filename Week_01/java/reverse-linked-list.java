@@ -25,7 +25,7 @@
  * 
  * problem: https://leetcode-cn.com/problems/reverse-linked-list/
  * @author caohui
- * @date 2020/06/23
+ * @date 2020/06/24
  */
 
 // @lc code=start
