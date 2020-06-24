@@ -2,7 +2,7 @@
  * @lc app=leetcode.cn id=15 lang=java
  *
  * [15] 3Sum
- * problem: https://leetcode-cn.com/problems/climbing-stairs/
+ * problem: https://leetcode-cn.com/problems/3-sum/
  * @author caohui
  * @date 2020/06/24
  */
