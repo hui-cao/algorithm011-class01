@@ -5,6 +5,7 @@
 |---| ----- | -------- | ---------- |
 |283|[移动零](https://leetcode-cn.com/problems/move-zeroes/), [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | [Java](./Week_01/java/move-zeroes.java)|Easy|
 |206|[反转链表](https://leetcode-cn.com/problems/reverse-linked-list/), [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [Java](./Week_01/java/reverse-linked-list.java)|Medium|
+|189|[旋转数组](https://leetcode-cn.com/problems/rotate-array/), [Rotate Array](https://leetcode.com/problems/rotate-array/) | [Java](./Week_01/java/rotate-array.java)|Easy|
 |70|[爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/), [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Java](./Week_01/java/climbing-stairs.java)|Easy|
 |66|[加一](https://leetcode-cn.com/problems/plus-one/), [Plus One](https://leetcode.com/problems/plus-one/) | [Java](./Week_01/java/plus-one.java)|Easy|
 |26|[删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/), [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | [Java](./Week_01/java/remove-duplicates-from-sorted-array.java)|Easy|
