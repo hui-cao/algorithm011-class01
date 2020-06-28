@@ -110,7 +110,7 @@ Deque 是一个两端都可以进出的 Queue，可以通过组合不同的操�
 
   ![image-20200628205250572](assets/image-20200628205250572.png)
 
-* 
+* `java.util.LinkedList`
 
   ![image-20200628203453417](assets/image-20200628203453417.png)
 
@@ -122,7 +122,7 @@ Deque 是一个两端都可以进出的 Queue，可以通过组合不同的操�
 
 Java 实现：
 
-* `java.util.PriorityQueue<E>`
+* `java.util.PriorityQueue`
 
   ![image-20200628210837560](assets/image-20200628210837560.png)
 
