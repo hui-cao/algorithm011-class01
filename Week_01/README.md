@@ -1,3 +1,5 @@
+
+
 # 学习笔记 W1
 
 
@@ -5,6 +7,8 @@
 ## mindmap
 
 ![big-o-cheatsheet](assets/algorithms-summary.png)
+
+
 
 ## 算法分析
 
@@ -23,6 +27,8 @@
 - O(n!): Factorial 阶乘
 
 ![image-20200628164703983](assets/image-20200628164703983.png)
+
+
 
 ## 数据结构
 
@@ -68,15 +74,21 @@
 
 ![image-20200628162102096](assets/image-20200628162102096.png)
 
-#### ` Java`实现
+**Java 接口与实现**
 
-* `java.util.Stack` 通过继承 `Vector`实现，引入较早（JDK1.0），不推荐使用。`Deque`接口及其实现提供了一个更完整和连贯的`LIFO`栈操作，应优先使用`Deque`。
-* `java.util.Deque`
+* `java.util.Stack` 
+* `java.util.Deque` 接口
   * `java.util.ArrayDeque`
   * `java.util.LinkedList`
   * `java.util.concurrent.BlockingDeque`
   * `java.util.concurrent.ConcurrentLinkedDeque`
   * `java.util.concurrent.LinkedBlockingDeque`
+
+
+
+**Stack**
+
+`Stack`引入较早（JDK1.0），通过继承 `Vector`实现，不推荐使用。`Deque`接口及其实现提供了一个更完整和连贯的`LIFO`栈操作，应优先使用`Deque`。
 
 ![image-20200628203309082](assets/image-20200628203309082.png)
 
@@ -88,13 +100,32 @@
 
 ![image-20200628154920811](assets/image-20200628154920811.png)
 
-#### Java 实现
+**Java 接口与实现**
 
-![image-20200628204413102](assets/image-20200628204413102.png)
+* `java.util.Queue` 接口，JDK 1.5 引入
+  * `java.util.concurrent.ArrayBlockingQueue`
+  * `java.util.ArrayDeque`
+  * `java.util.concurrent.ConcurrentLinkedDeque`
+  * `java.util.concurrent.ConcurrentLinkedQueue`
+  * `java.util.concurrent.DelayQueue`
+  * `java.util.concurrent.LinkedBlockingDeque`
+  * `java.util.concurrent.LinkedBlockingQueue`
+  * `java.util.LinkedList`  JDK 1.2 引入
+  * `java.util.concurrent.LinkedTransferQueue`
+  * `java.util.concurrent.PriorityBlockingQueue`
+  * `java.util.PriorityQueue`
+  * `java.util.concurrent.SynchronousQueue`
 
-* API 操作
 
-![image-20200628204344504](assets/image-20200628204344504.png)
+API 操作
+
+| -       | Throws exception | Returns special value |
+|---------|------------------|-----------------------|
+| Insert  | add(e)           | offer(e)              |
+| Remove  | remove()         | poll()                |
+| Examine | element()        | peek()                |
+
+
 
 #### 双端队列 Deque（Double-End Queue）
 
@@ -102,17 +133,71 @@ Deque 是一个两端都可以进出的 Queue，可以通过组合不同的操�
 
 ![image-20200628162315655](assets/image-20200628162315655.png)
 
-* Java 实现
+**Java 接口与实现**
 
-  ![image-20200628204821689](assets/image-20200628204821689.png)
+*  `java.util.Deque` JDK 1.6 引入
+  * `java.util.ArrayDeque`
+  * `java.util.LinkedList`  JDK 1.2 引入
+  * `java.util.concurrent.ConcurrentLinkedDeque`
+  * `java.util.concurrent.LinkedBlockingDeque`
 
-* API操作
+Summary of Deque methods
 
-  ![image-20200628205250572](assets/image-20200628205250572.png)
+| -       | Throws exception     | Special value        | Throws exception    | Special value       |
+|---------|----------------------|----------------------|---------------------|---------------------|
+| -       | First Element (Head) | First Element (Head) | Last Element (Tail) | Last Element (Tail) |
+| Insert  | addFirst(e)          | offerFirst(e)        | addLast(e)          | offerLast(e)        |
+| Remove  | removeFirst()        | pollFirst()          | removeLast()        | pollLast()          |
+| Examine | getFirst()           | peekFirst()          | getLast()           | peekLast()          |
 
-* `java.util.LinkedList`
+Comparison of Queue and Deque methods
 
-  ![image-20200628203453417](assets/image-20200628203453417.png)
+| Queue Method | Equivalent Deque Method |
+| ------------ | ----------------------- |
+| add(e)       | addLast(e)              |
+| offer(e)     | offerLast(e)            |
+| remove()     | removeFirst()           |
+| poll()       | pollFirst()             |
+| element()    | getFirst()              |
+| peek()       | peekFirst()             |
+
+Comparison of Stack and Deque methods
+
+| Stack Method | Equivalent Deque Method |
+| ------------ | ----------------------- |
+| push(e)      | addFirst(e)             |
+| pop()        | removeFirst()           |
+| peek()       | peekFirst()             |
+
+API demo
+
+```java
+Deque<String> deque = new LinkedList<>();
+deque.addFirst("a");
+deque.addFirst("b");
+deque.addFirst("c");
+System.out.println(deque);
+
+String str = deque.getFirst();
+System.out.println(str);
+System.out.println(deque);
+
+while (deque.size() > 0) {
+  System.out.println(deque.removeFirst());
+}
+
+System.out.println(deque);
+```
+
+
+
+**LinkedList**
+
+`LinkedList` 的底层是一个双向链表，除了实现了`List`接口，还实现了`Deque`接口。
+
+![image-20200628203453417](assets/image-20200628203453417.png)
+
+
 
 #### 优先队列 Priority Queue
 
@@ -120,11 +205,21 @@ Deque 是一个两端都可以进出的 Queue，可以通过组合不同的操�
 
 底层有多种实现方式：heap、bst、treap。
 
-Java 实现：
 
-* `java.util.PriorityQueue`
 
-  ![image-20200628210837560](assets/image-20200628210837560.png)
+**Java 实现**
+
+* `java.util.PriorityQueue` JDK 1.5 引入
+
+
+
+`PriorityQueue` 的底层是一个数组实现的**小顶堆**，整体不是有序的，只有堆顶存储着最小元素。入队即堆的插入实现，出队即堆的删除实现。
+
+`PriorityQueue` 是非线程安全的。
+
+![image-20200628210837560](assets/image-20200628210837560.png)
+
+  
 
 ## LeetCode
 
