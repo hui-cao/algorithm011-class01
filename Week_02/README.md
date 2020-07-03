@@ -6,7 +6,7 @@
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
 |350|[两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii) | [Java](./java/intersection-of-two-arrays-ii.java)|Easy|
-
+|242|[有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | [Java](./java/valid-anagram.java)|Easy|
 
 ## 哈希表、映射、集合
 
