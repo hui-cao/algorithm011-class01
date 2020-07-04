@@ -55,9 +55,28 @@ class Node {
 
 class Solution {
     /**
-     * 循环。使用栈来模拟递归
+     * 递归
      */
     public List<Integer> preorder(Node root) {
+        List<Integer> res = new LinkedList<>();
+        recursion(root, res);
+        return res;
+    }
+
+    private void recursion(Node node, List<Integer> res) {
+        if (node == null) return;
+        res.add(node.val);
+        if (node.children != null) {
+            for (Node n : node.children) {
+                recursion(n, res);
+            }
+        }
+    }
+
+    /**
+     * 借助栈进行迭代，模拟递归
+     */
+    public List<Integer> preorder1(Node root) {
         List<Integer> res = new LinkedList();
         if (root == null) return res;
 
@@ -78,24 +97,6 @@ class Solution {
         return res;
     }
 
-    /**
-     * 递归
-     */
-    public List<Integer> preorder1(Node root) {
-        List<Integer> res = new LinkedList<>();
-        recursion(root, res);
-        return res;
-    }
-
-    private void recursion(Node node, List<Integer> res) {
-        if (node == null) return;
-        res.add(node.val);
-        if (node.children != null) {
-            for (Node n : node.children) {
-                recursion(n, res);
-            }
-        }
-    }
 }
 // @lc code=end
 
