@@ -5,6 +5,7 @@
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|589|[N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/) | [Java](./java/n-ary-tree-preorder-traversal.java)|Easy|
 |412|[Fizz Buzz](https://leetcode-cn.com/problems/fizz-buzz/) | [Java](./java/fizz-buzz.java)|Easy|
 |350|[两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii) | [Java](./java/intersection-of-two-arrays-ii.java)|Easy|
 |242|[有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | [Java](./java/valid-anagram.java)|Easy|
