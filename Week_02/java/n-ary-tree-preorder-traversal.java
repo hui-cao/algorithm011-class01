@@ -84,8 +84,10 @@ class Solution {
         stack.addFirst(root);
 
         while (!stack.isEmpty()) {
+            // 根
             root = stack.removeFirst();
             res.add(root.val);
+            // 左 - 右
             if (root.children != null) {
                 // 逆序入栈
                 for (int i = root.children.size()-1; i >= 0; i--) {
