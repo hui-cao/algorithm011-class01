@@ -1,17 +1,10 @@
 # 学习笔记 W3
 
-回溯
-
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-|22|[括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | [Java](./java/generate-parentheses.java)|Medium|
-
 # 泛型递归、树的递归
 
 **递归的代码模板**
 
 ```java
-// Java
 public void recursion(int level, int ... param) {
     // 1. terminator 递归的终止条件
     if (level > MAX_LEVEL) {
@@ -28,7 +21,6 @@ public void recursion(int level, int ... param) {
 ```
 
 ```python
-# Python
 def recursion(level, param1, param2, ...):
     # recursion terminator 
     if level > MAX_LEVEL: 
