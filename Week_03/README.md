@@ -73,10 +73,13 @@ def recursion(level, param1, param2, ...):
 > 在分治的方法中，将待解决的问题切分为较小的子问题，然后分别解决每个子问题。当我们继续将子问题划分为更小的子问题时，我们最终可能会达到无法再进行切分的阶段，而这些“原子的”最小可能子问题是已经被解决了的。最后将所有子问题的解进行合并，最终获得原始问题的解。  
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1ggmy4g07czj30fa09bdg9.jpg)
+
 图片来源 [Data Structures - Divide and Conquer - Tutorialspoint](https://www.tutorialspoint.com/data_structures_algorithms/divide_and_conquer.htm)
 
 **递归状态树**
+
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1ggmy5psv0vj30vy0dp0vj.jpg)
+
 图片来源 [Divide and Conquer Algorithms. Divide-and-Conquer Algorithm | by James Le | Cracking The Data Science Interview | Medium](https://medium.com/cracking-the-data-science-interview/divide-and-conquer-algorithms-b135681d08fc)
 
 分治的代码模板
@@ -171,10 +174,12 @@ https://afteracademy.com/blog/what-is-backtrac
 > 作者：liweiwei1419  
 > 链接：https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/  
 
-**回溯**的图例
+**回溯**的图例
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1ggmy6nlxbfj31ft0u043j.jpg)
+
 图片来源 [Backtracking](https://osiris.ubishops.ca/xxu/algorithms/backtrack.html)
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1ggmy6vtuj5j30lf0l4ta2.jpg)
+
 图片来源 [(PDF) White-Box Prediction of Process Performance Indicators via Flow Analysis](https://www.researchgate.net/publication/316610194_White-Box_Prediction_of_Process_Performance_Indicators_via_Flow_Analysis)
