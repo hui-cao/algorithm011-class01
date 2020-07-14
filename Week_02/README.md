@@ -9,7 +9,7 @@
 |412|[Fizz Buzz](https://leetcode-cn.com/problems/fizz-buzz/) | [Java](./java/fizz-buzz.java)|Easy|
 |350|[两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii) | [Java](./java/intersection-of-two-arrays-ii.java)|Easy|
 |242|[有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | [Java](./java/valid-anagram.java)|Easy|
-|144|[二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | [Java](./java/binary-tree-inorder-traversal.java)|Medium|
+|144|[二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | [Java](./java/binary-tree-preorder-traversal.java)|Medium|
 |94|[二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | [Java](./java/binary-tree-inorder-traversal.java)|Medium|
 
 ## 哈希表、映射、集合
