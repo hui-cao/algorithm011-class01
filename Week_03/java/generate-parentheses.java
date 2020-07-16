@@ -35,7 +35,43 @@
 // @lc code=start
 class Solution {
     /**
-     * 回溯
+     * BFS
+     * @author caohui
+     * @date 2020/07/16
+     */
+    public List<String> generateParenthesis(int n) {
+        List<String> res = new LinkedList<>();
+        if (n == 0) return res;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(new Node("", 0, 0));
+        
+        while (!queue.isEmpty()) {
+            Node cur = queue.remove();
+            if (cur.left == n && cur.right == n) {
+                res.add(cur.res);
+                continue;
+            }
+            if (cur.left < n) queue.add(new Node(cur.res + "(", cur.left + 1, cur.right));
+            if (cur.right < cur.left) queue.add(new Node(cur.res + ")", cur.left, cur.right + 1));
+        }
+
+        return res;
+    }
+
+    class Node {
+        private String res;
+        private int left;
+        private int right;
+        public Node (String res, int left, int right) {
+            this.res = res;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    /**
+     * 回溯 (DFS)
      * 时间复杂度 O(4^n/sqrt(n))
      * 空间复杂度 O(n) 取决于递归栈的深度
      */
@@ -60,7 +96,7 @@ class Solution {
      * 时间复杂度 O(2^(2n) * n)
      * 空间复杂度 O(n) 取决于递归栈的深度
      */
-    public List<String> generateParenthesis(int n) {
+    public List<String> generateParenthesis2(int n) {
         List<String> res = new ArrayList();
         generateAll(res, 0, n*2, "");
         return res;
