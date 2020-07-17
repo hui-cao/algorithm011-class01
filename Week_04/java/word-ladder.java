@@ -60,13 +60,48 @@
 // @lc code=start
 class Solution {
     /**
+     * BFS 单向搜索 不提前构建wordParttenMap
+     * @author caohui
+     * @date 2020/07/17
+     */
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        if (wordList.size() == 0) return 0;
+        Set<String> wordSet = new HashSet<>(wordList);
+        if (!wordSet.contains(endWord)) return 0;
+
+        Queue<String> queue = new LinkedList<>();
+        queue.add(beginWord);
+        
+        int level = 1;
+        while (!queue.isEmpty()) {
+            for (int i = queue.size(); i > 0; i--) {
+                String word = queue.remove();
+                for (int j = 0; j < word.length(); j++) {
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        if (word.charAt(j) == c) continue;
+                        String newWord = new StringBuilder(word).replace(j, j+1, Character.toString(c)).toString();
+                        if (newWord.equals(endWord)) return level + 1;
+                        if (wordSet.contains(newWord)) {
+                            queue.add(newWord);
+                            wordSet.remove(newWord);
+                        }
+                    }
+                }
+            }
+            level++;
+        }
+
+        return 0;
+    }
+
+    /**
      * BFS 单向搜索 （因为已知终点，所以可以进一步优化为双向搜索）
      * time -> O(m * n) m为word长度，n为wordList大小
      * space -> O(m * n) wordMap中需要为每个word存储m个pattern；BFS的队列中最坏的情况需要存储n个word
      * @author caohui
      * @date 2020/07/15
      */
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+    public int ladderLength1(String beginWord, String endWord, List<String> wordList) {
         if (wordList.size() == 0) return 0;
         int l = beginWord.length();
 
@@ -104,6 +139,7 @@ class Solution {
         }
         return 0;
     }
+
 }
 // @lc code=end
 
