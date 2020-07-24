@@ -39,6 +39,8 @@
 class Solution {
     /**
      * greedy
+     * time -> O(n)
+     * space -> O(1)
      * @author caohui
      * @date 2020/07/19
      */
@@ -54,6 +56,8 @@ class Solution {
 
     /**
      * graddy
+     * time -> O(n)
+     * space -> O(1)
      * @author caohui
      * @date 2020/07/19
      */

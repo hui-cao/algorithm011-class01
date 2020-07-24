@@ -76,24 +76,13 @@ class Solution {
      * @date 2020/07/22
      */
     public boolean lemonadeChange(int[] bills) {
-        int five = 0, ten = 0;
+        int count5 = 0, count10 = 0;
         for (int bill : bills) {
-            if (bill == 5) five++;
-            else if (bill == 10) {
-                if (five == 0) return false;
-                five--;
-                ten++;
-            }
-            else {
-                if (five > 0 && ten > 0) {
-                    five--;
-                    ten--;
-                }
-                else if (five >= 3) {
-                    five -= 3;
-                }
-                else return false;
-            }
+            if (bill == 5) count5++;
+            else if (bill == 10 && count5 > 0) { count5--; count10++; }
+            else if (bill == 20 && count10 > 0 && count5 > 0) { count5--; count10--; }
+            else if (bill == 20 && count5 >= 3) count5 -= 3;
+            else return false; 
         }
         return true;
     }
