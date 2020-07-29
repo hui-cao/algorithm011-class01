@@ -56,6 +56,8 @@
 class Solution {
     /**
      * DP
+     * time -> O(m*n)
+     * space -> O(n)
      * @author caohui
      * @date 2020/07/28
      */
