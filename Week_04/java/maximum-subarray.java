@@ -31,6 +31,41 @@
 // @lc code=start
 class Solution {
     /**
+     * DP
+     * time -> O(n)
+     * space -> O(1)
+     * @author caohui
+     * @date 2020/07/31
+     */
+    public int maxSubArray(int[] nums) {
+        int max = nums[0], sum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            sum = Math.max(sum, 0) + nums[i];
+            max = Math.max(max, sum);
+        }
+        return max;
+    }
+
+    /**
+     * DP
+     * time -> O(n)
+     * space -> O(n)
+     * @author caohui
+     * @date 2020/07/31
+     */
+    public int maxSubArray3(int[] nums) {
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        int max = dp[0];
+        for (int i = 1; i < nums.length; i++) {
+            // dp[i] means the maximum-subarray ending with nums[i]
+            dp[i] = Math.max(dp[i-1] + nums[i], nums[i]);
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+    /**
      * 分治
      * 以mid为中心向左右逐步扩大至边界，记录连续数组的最大和。
      * 假设目标不存在则目标（连续数组）存在于左半边或右半边，把左、右半边作为同类子问题进行递归。
@@ -39,7 +74,7 @@ class Solution {
      * @author caohui
      * @date 2020/07/23
      */
-    public int maxSubArray(int[] nums) {
+    public int maxSubArray2(int[] nums) {
         return recursion(nums, 0, nums.length - 1);
     }
 
