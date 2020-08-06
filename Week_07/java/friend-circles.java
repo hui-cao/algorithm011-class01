@@ -62,19 +62,22 @@ class Solution {
      * @date 2020/08/05
      */
     public int findCircleNum(int[][] M) {
-        int count = M.length, roots[] = IntStream.range(0, M.length).toArray();
-        for (int i = 0; i < M.length; i++)
-            for (int j = i + 1, rootI = getRoot(roots, i), rootJ; j < M.length; j++)
-                if (M[i][j] == 1 && rootI != (rootJ = getRoot(roots, j))) {
-                    roots[rootJ] = rootI;
+        int count = M.length, parent[] = IntStream.range(0, M.length).toArray();
+        for (int i = 0; i < M.length - 1; i++) {
+            for (int j = i + 1; j < M.length; j++) {
+                int iRoot = findRoot(parent, i), jRoot = findRoot(parent, j);
+                if (M[i][j] == 1 && iRoot != jRoot) {
+                    parent[jRoot] = iRoot;
                     count--;
                 }
+            }
+        }
         return count;
     }
 
-    private int getRoot(int[] roots, int leaf) {
-        while (leaf != roots[leaf]) leaf = roots[leaf] = roots[roots[leaf]];
-        return leaf;
+    private int findRoot(int[] parent, int i) {
+        while (i != parent[i]) i = parent[i] = parent[parent[i]];
+        return i;
     }
 
     /**
@@ -178,6 +181,7 @@ class Solution {
             }
         }
     }
+    
 }
 // @lc code=end
 
