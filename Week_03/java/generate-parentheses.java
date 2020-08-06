@@ -35,11 +35,34 @@
 // @lc code=start
 class Solution {
     /**
+     * DP
+     * time | runtime beats 8.42 % 
+     * @author caohui
+     * @date 2020/08/06
+     */
+    public List<String> generateParenthesis(int n) {
+        List<List<String>> dp = new ArrayList<>(n);
+        dp.add(Arrays.asList("")); // dp(0)
+        for (int i = 1; i <= n; i++) {
+            List<String> dpi = new LinkedList<>();
+            for (int j = 0; j <= i - 1; j++) {
+                // dp(i) = ( + dp((i-1)-j) + ) + dp(j); j: [0 -> i-1]
+                List<String> strs1 = dp.get(i-1-j);
+                List<String> strs2 = dp.get(j);
+                for (String s1 : strs1) for (String s2 : strs2) dpi.add("(" + s1 + ")" + s2);
+            }
+            dp.add(dpi);
+        }
+        return dp.get(n);
+    }
+
+    /**
      * BFS
+     * time | runtime beats 16.60 % 
      * @author caohui
      * @date 2020/07/16
      */
-    public List<String> generateParenthesis(int n) {
+    public List<String> generateParenthesis3(int n) {
         List<String> res = new LinkedList<>();
         if (n == 0) return res;
 
@@ -72,7 +95,7 @@ class Solution {
 
     /**
      * 回溯 (DFS)
-     * 时间复杂度 O(4^n/sqrt(n))
+     * 时间复杂度 O(4^n/sqrt(n)) | runtime beats 96.93 % 
      * 空间复杂度 O(n) 取决于递归栈的深度
      */
     public List<String> generateParenthesis1(int n) {
@@ -93,7 +116,7 @@ class Solution {
 
     /**
      * 暴力递归
-     * 时间复杂度 O(2^(2n) * n)
+     * 时间复杂度 O(2^(2n) * n) | runtime beats 5.29 % 
      * 空间复杂度 O(n) 取决于递归栈的深度
      */
     public List<String> generateParenthesis2(int n) {
