@@ -129,7 +129,7 @@ public void debfs(Node start, Node end) {
         for (Node cur : startQ) {
             visited.add(cur);
             // process node
-            for (Node next : generateRelatedNodes()) {
+            for (Node next : generateRelatedNodes(cur)) {
                 if (!visited.contains(next)) tmp.add(next);
             }
         }
@@ -185,18 +185,23 @@ public void debfs(Node start, Node end) {
 
 为了平衡自身，AVL树需要执行以下四种旋转：
 * Left rotation (Right-Right Case)
+
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghjkb0jycnj30dw0550sx.jpg)
 
 * Right rotation (Left-Left Case)
+
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghjkb7v8byj30dw0510sw.jpg)
 
 * Left-Right rotation (Left-Right Case)
+
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghjkbg3js1j30qi04740a.jpg)
 
 * Right-Left rotation (Right-Left Case)
+
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghjkbm1bm1j30r204qq4w.jpg)
 
 带有子树的旋转：
+
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghjkbs10udg306y06ywlt.gif)
 
 [File:Tree Rebalancing.gif - Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tree_Rebalancing.gif)
@@ -206,7 +211,8 @@ public void debfs(Node start, Node end) {
 
 不足：
 1. 节点需要存储额外的信息（int类型的平衡因子）
-2. 因为严格要求平衡，调整频繁
+2. 因为严格要求平衡，所以调整频繁
+
 - - - -
 
 ## 红黑树
