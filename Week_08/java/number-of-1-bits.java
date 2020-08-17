@@ -62,9 +62,19 @@ public class Solution {
      * time -> O(1)
      * space -> O(1)
      * @author caohui
-     * @date 2020/08/16
+     * @date 2020/08/17
      */
     public int hammingWeight(int n) {
+        return n == 0 ? 0 : hammingWeight(n & (n - 1)) + 1;
+    }
+    
+    /**
+     * time -> O(1)
+     * space -> O(1)
+     * @author caohui
+     * @date 2020/08/16
+     */
+    public int hammingWeight2(int n) {
         int count = 0;
         while (n != 0) {
             count++;
