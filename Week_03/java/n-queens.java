@@ -49,16 +49,58 @@
  * 皇后，是国际象棋中的棋子，意味着国王的妻子。皇后只做一件事，那就是“吃子”。当她遇见可以吃的棋子时，就迅速冲上去吃掉棋子。当然，她横、竖、斜都可走一到七步，可进可退。（引用自
  * 百度百科 - 皇后 ）
  * 
- * @author caohui
- * @date 2020/07/08
  */
 
 // @lc code=start
 class Solution {
     /**
-     * 回溯
+     * 回溯 + bit
+     * @author caohui
+     * @date 2020/08/18
      */
     public List<List<String>> solveNQueens(int n) {
+        List<List<String>> res = new LinkedList<>();
+        if (n <= 0) return res;
+        dfsbit(res, new int[n], n, 0, 0, 0, 0);
+        return res;
+    }
+
+    private void dfsbit(List<List<String>> res, int[] queens, int n, int row, int cols, int pie, int na) {
+        if (row == n) {
+            res.add(draw(queens));
+            return;
+        }
+        int mask = (1 << n) - 1;
+        int free = ~(cols | pie | na) & mask;
+        while (free != 0) {
+            int p = free & -free;
+            
+            int temp = p, i = 0;
+            while ((temp >>= 1) != 0) i++;
+            queens[row] = i;
+            
+            dfsbit(res, queens, n, row + 1, cols | p, (pie | p) << 1, (na | p) >> 1);
+            
+            free &= free - 1;
+        }
+    }
+
+    private List<String> draw(int[] queens) {
+        List<String> lines = new LinkedList<>();
+        for (int q : queens) {
+            StringBuilder line = new StringBuilder();
+            for (int i = 0; i < queens.length; i++) line.append(i == q ? "Q" : ".");
+            lines.add(line.toString());
+        }
+        return lines;
+    }
+
+    /**
+     * 回溯
+     * @author caohui
+     * @date 2020/07/08
+     */
+    public List<List<String>> solveNQueens1(int n) {
         List<List<String>> res = new LinkedList<>();
         if (n <= 0) return res;
         dfs(res, n, 0, new LinkedHashSet<>(), new HashSet<>(), new HashSet<>());
